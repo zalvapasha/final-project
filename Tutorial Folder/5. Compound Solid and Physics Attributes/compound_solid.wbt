@@ -1,0 +1,230 @@
+#VRML_SIM R2022a utf8
+WorldInfo {
+  basicTimeStep 16
+  contactProperties [
+    ContactProperties {
+      material2 "dumbell"
+      coulombFriction [
+        0
+      ]
+    }
+  ]
+}
+Viewpoint {
+  orientation -0.4242545269581311 0.4434367205129428 0.78953908785839 1.673423951360707
+  position -0.14036435957549256 -1.0538637451597255 1.4975350617567456
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 1 1
+}
+DEF DUMBELL Solid {
+  translation -0.0885468 -0.388805 0.0251204
+  rotation 0 1 0 1.5708
+  children [
+    DEF Go Group {
+      children [
+        Transform {
+          translation 0 0 0.07
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Sphere {
+                radius 0.03
+              }
+            }
+          ]
+        }
+        Transform {
+          translation 0 0 -0.07
+          children [
+            Shape {
+              appearance PBRAppearance {
+              }
+              geometry Sphere {
+                radius 0.03
+              }
+            }
+          ]
+        }
+        Shape {
+          appearance PBRAppearance {
+          }
+          geometry Cylinder {
+            height 0.1
+            radius 0.01
+          }
+        }
+      ]
+    }
+  ]
+  name "solid(7)"
+  contactMaterial "dumbell"
+  boundingObject USE Go
+  physics Physics {
+    density -1
+    mass 2
+    centerOfMass [
+      0.01 0.01 0.01
+    ]
+  }
+}
+WoodenBox {
+  translation -0.240488 0.315361 0.0499608
+  rotation -2.69005e-17 -4.79334e-17 1 0.261799
+  size 0.1 0.1 0.1
+  mass 0.2
+}
+WoodenBox {
+  translation -0.370077 0.313676 0.0499608
+  rotation -1.7438e-17 -1.71068e-17 1 0.884946
+  name "wooden box(1)"
+  size 0.1 0.1 0.1
+  mass 0.2
+}
+WoodenBox {
+  translation -0.319115 0.318964 0.149961
+  rotation 2.673573556799189e-16 -7.878145524072227e-16 1 0.04410076195017733
+  name "wooden box(2)"
+  size 0.1 0.1 0.1
+  mass 0.2
+}
+E-puck {
+  translation -0.21366 -0.0884013 0.000628117
+  rotation -0.003377110836963833 0.00031531507814588536 -0.9999942478328545 0.709801
+  controller "epuck_avoid_collision"
+}
+DEF BALL_1 Solid {
+  translation -0.063605 0.438054 0.04
+  children [
+    Shape {
+      appearance PBRAppearance {
+        baseColorMap ImageTexture {
+          url [
+            "C:/Users/Asus/Documents/FILE_KULIAH/smstr7/Robotik/final-project/Tutorial Folder/3. Appearance/red_brick_wall.jpg"
+          ]
+        }
+        roughness 1
+        metalness 0
+      }
+      geometry DEF BALL_GEOMETRY Sphere {
+        radius 0.05
+        subdivision 2
+      }
+    }
+  ]
+  boundingObject USE BALL_GEOMETRY
+  physics Physics {
+  }
+}
+DEF BALL_2 Solid {
+  translation -0.326472 -0.207178 0.04
+  children [
+    Shape {
+      appearance OldSteel {
+      }
+      geometry DEF BALL_GEOMETRY Sphere {
+        radius 0.05
+        subdivision 2
+      }
+    }
+  ]
+  name "solid(6)"
+  boundingObject USE BALL_GEOMETRY
+  physics Physics {
+  }
+}
+DEF CYLINDER Solid {
+  translation -0.32 0.02 0.16
+  children [
+    DEF CYLINDER_GEOMETRY Shape {
+      appearance PBRAppearance {
+      }
+      geometry Cylinder {
+        height 0.3
+        radius 0.05
+      }
+    }
+  ]
+  name "solid(1)"
+  boundingObject DEF CYLINDER_GEOMETRY Cylinder {
+    height 0.3
+    radius 0.05
+  }
+  physics Physics {
+  }
+}
+DEF WALL_1 Solid {
+  translation 0.5 0 0.05
+  children [
+    Shape {
+      appearance DEF WALL PBRAppearance {
+        baseColor 0 0.666667 1
+        roughness 0.5
+        metalness 0
+      }
+      geometry DEF WALL_GEOMETRY Box {
+        size 0.02 1 0.1
+      }
+    }
+  ]
+  name "solid(2)"
+  boundingObject USE WALL_GEOMETRY
+}
+DEF WALL_2 Solid {
+  translation -0.51 0 0.05
+  children [
+    Shape {
+      appearance DEF WALL PBRAppearance {
+        baseColor 0 0.666667 1
+        roughness 0.5
+        metalness 0
+      }
+      geometry DEF WALL_GEOMETRY Box {
+        size 0.02 1 0.1
+      }
+    }
+  ]
+  name "solid(3)"
+  boundingObject USE WALL_GEOMETRY
+}
+DEF WALL_3 Solid {
+  translation 1.87329e-06 -0.51 0.05
+  rotation 0 0 1 1.5708
+  children [
+    Shape {
+      appearance DEF WALL PBRAppearance {
+        baseColor 0 0.666667 1
+        roughness 0.5
+        metalness 0
+      }
+      geometry DEF WALL_GEOMETRY Box {
+        size 0.02 1 0.1
+      }
+    }
+  ]
+  name "solid(4)"
+  boundingObject USE WALL_GEOMETRY
+}
+DEF WALL_4 Solid {
+  translation -1.87328e-06 0.51 0.05
+  rotation 0 0 1 1.5708
+  children [
+    Shape {
+      appearance DEF WALL PBRAppearance {
+        baseColor 0 0.666667 1
+        roughness 0.5
+        metalness 0
+      }
+      geometry DEF WALL_GEOMETRY Box {
+        size 0.02 1 0.1
+      }
+    }
+  ]
+  name "solid(5)"
+  boundingObject USE WALL_GEOMETRY
+}
